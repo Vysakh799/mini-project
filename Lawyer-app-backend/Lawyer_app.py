@@ -1,8 +1,8 @@
 lawyers=[['79644', 'Vysakh', '7994634647', 'Vysakham,Poovannur palli', '3 years', 'Criminal case', 'Calicut', 'Vys7994', 'Vyga@123'],
          ['79655', 'Nihal', '7994634648', 'Nakkotil house ,Aikkarappadi', '4 years', 'Petti case', 'Malappuram', 'Nih7994', 'Nilu@123'],
          ['79666', 'Amal', '7945673475', 'Amaloski villa ,Farook college', '2 years', 'Any case', 'Calicut', 'Ama7945', 'Amal@123']]
-customers=[['87564', 'Salman', '8756457384', 'PPMS Villa', 'Adhaar', 'Sal8756', 'Salu@123',[],[]],
-           ['74567', 'Muneeb', '7456743798', 'Sabisthan house', 'Adhaar', 'Mun7456', 'Munu@123',[],[]]]
+customers=[['87564', 'Salman', '8756457384', 'PPMS Villa', 'Adhaar', 'Sal8756', 'Salu@123',[],{}],
+           ['74567', 'Muneeb', '7456743798', 'Sabisthan house', 'Adhaar', 'Mun7456', 'Munu@123',[],{}]]
 while True:
     print("""1.Lawyer
 2.Customer
@@ -30,25 +30,22 @@ while True:
                 lawyers.append([l_id,l_name,l_phno,l_address,l_experience,l_fc_area,l_location,l_username,l_password])
                 print("Username :",l_username)
                 print("Password :",l_password)
-                for lawyer in lawyers:
-                    print(lawyer)
             elif choice==2:
                 username=input("Enter your username :")
                 password=input("Enter your password :")
                 while True:
-                    if username==l_username and password==l_password:
-                        print("""1.Case details
-2.Customer
+                    for lawyer in lawyers:
+                        if username==lawyer[-2] and password==lawyer[-1]:
+                            print("""1.Customer
+2.Case Details
 3.Case updates
 4.Exit""")
-                        choice==int(input("Enter your choice :"))
-                        # if choice==1:
-                        if choice==3:
-                            for customer in customers:
-                                print
+                            choice=int(input("Enter your choice :"))
+                            # if choice==1:
+                                # for customer in customers:
+                                #     for i in customer:
 
-                    else:
-                        print("Invalid username OR password")
+
             elif choice==3:
                 break
     elif choice==2:
@@ -67,7 +64,7 @@ while True:
                     u=c_name[:3]
                     c_username=u+p
                     c_password=input("Enter your password :")
-                    customers.append([c_id,c_name,c_phno,c_address,c_idproof,c_username,c_password,[],[]])
+                    customers.append([c_id,c_name,c_phno,c_address,c_idproof,c_username,c_password,[],{}])
                     print("Username :",c_username)
                     print("Password :",c_password)
                     for customer in customers:
@@ -81,7 +78,8 @@ while True:
                             while True:
                                 print("""1.Find lawyers
 2.Case details
-3.Case updates""")
+3.Case updates
+4.Exit""")
                                 choice=int(input("Enter your choice :"))
                                 if choice==1:
                                     location=input("Enter the location which u need to find lawyer :")
@@ -90,8 +88,25 @@ while True:
                                         if location==lawyer[6]:
                                             print("ID :",lawyer[0],"|",lawyer[1],"|",lawyer[2],"|",lawyer[3],"|",lawyer[4],"of experience","|",lawyer[5])
                                             c=1
+                                    id=int(input("Enter the id of Lawyer you need to choose :"))
+                                    for customer in customers:
+                                        if username==customer[5] and password==customer[6]:
+                                            customer[7].append(id)
+                                            print("Lawyer added successfully")
                                     if c==0:
                                          print("Invalid Location")
+                                elif choice==2:
+                                    case_details=input("Enter case details :")
+                                    for customer in customers:
+                                        if username==customer[5] and password==customer[6]:
+                                            customer[8].update({'Case_details':case_details})
+                                            print("Case details added Successfully")
+                                elif choice==3:
+                                    for customer in customers:
+                                        if username==customer[5] and password==customer[6]:
+                                            print(customer)
+                                elif choice==4:
+                                     break
             elif choice==3:
                     break
     elif choice==4:
