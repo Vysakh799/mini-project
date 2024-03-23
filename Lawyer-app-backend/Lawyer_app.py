@@ -22,7 +22,7 @@ while True:
                 l_location=input("Enter your location :")
                 p=l_phno[:4]
                 u=l_name[:3]
-                l_username=p+u
+                l_username=u+p
                 l_password=input("Enter your password :")
                 lawyers.append([l_id,l_name,l_phno,l_address,l_experience,l_fc_area,l_location,l_username,l_password])
                 print("Username :",l_username)
@@ -51,10 +51,21 @@ while True:
             print("""1.Register
 2.Login
 3.Exit""")
-            choice==int(input("Enter your choice :"))
+            choice=int(input("Enter your choice :"))
             while True:
                 if choice==1:
-                    
+                    c_name=input("Enter your name :")
+                    c_phno=input("Enter your phone number :")
+                    c_id=c_phno[:5]
+                    c_address=input("Enter your address :")
+                    c_idproof=input("Submit your any id proof :")
+                    p=c_phno[:4]
+                    u=c_name[:3]
+                    c_username=u+p
+                    c_password=input("Enter your password :")
+                    customers.append([c_id,c_name,c_phno,c_address,c_idproof,c_username,c_password])
+                    print("Username :",c_username)
+                    print("Password :",c_password)
     elif choice==4:
         break
 
