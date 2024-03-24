@@ -1,7 +1,7 @@
 lawyers=[['79644', 'Vysakh', '7994634647', 'Vysakham,Poovannur palli', '3 years', 'Criminal case', 'Calicut', 'Vys7994', 'Vyga@123'],
          ['79655', 'Nihal', '7994634648', 'Nakkotil house ,Aikkarappadi', '4 years', 'Petti case', 'Malappuram', 'Nih7994', 'Nilu@123'],
          ['79666', 'Amal', '7945673475', 'Amaloski villa ,Farook college', '2 years', 'Any case', 'Calicut', 'Ama7945', 'Amal@123']]
-customers=[['87564', 'Salman', '8756457384', 'PPMS Villa', 'Adhaar', 'Sal8756', 'Salu@123',[],{}],
+customers=[['87564', 'Salman', '8756457384', 'PPMS Villa', 'Adhaar', 'Sal8756', 'Salu@123',[79644],{}],
            ['74567', 'Muneeb', '7456743798', 'Sabisthan house', 'Adhaar', 'Mun7456', 'Munu@123',[],{}]]
 while True:
     print("""1.Lawyer
@@ -41,9 +41,16 @@ while True:
 3.Case updates
 4.Exit""")
                             choice=int(input("Enter your choice :"))
-                            # if choice==1:
-                                # for customer in customers:
-                                #     for i in customer:
+                            if choice==1:
+                                for customer in customers:
+                                    id_no=customer[7]
+                                    print(id_no)
+                                    for lawyer in lawyers:
+                                        print(id_no)
+                                        if id_no==lawyer[0]:
+                                            
+                                            print(customers)
+                                
 
 
             elif choice==3:
