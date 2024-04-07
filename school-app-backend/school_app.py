@@ -10,16 +10,16 @@ while True:
 2.Teachers
 3.Students""")
         choice=int(input("Enter your choice :"))
-        class Schools:
-                def __init__(self):
+class Schools:
+    def __init__(self):
                     if choice==1:
                         school_name=input("Enter the name of school :")
                         school_location=input("Enter location of school :")
                         schools.append([school_name,school_location])
                     else:
                          print("Invalid choice :")
-        class Teachers(Schools):
-                def __init__(self):
+class Teachers(Schools):
+    def __init__(self):
                     if choice==2:
                         t_name=input("Enter name of the teacher :")
                         t_address=input("Enter the address of the teacher :")
@@ -29,8 +29,8 @@ while True:
                         teachers.append([t_name,t_address,t_email,t_phno,t_qual])
                     else:
                         super().__init__()
-        class Students(Teachers):
-                def __init__(self):
+class Students(Teachers):
+    def __init__(self):
                     if choice==3:
                         st_name=input("Enter name of the student :")
                         st_address=input("Enter address of the student :")
